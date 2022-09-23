@@ -1,9 +1,9 @@
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-purchase-order-creates/SAP_API_Caller/caller.go#L58",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-purchase-order-creates/SAP_API_Caller/caller.go#L59",
 	"function": "sap-api-integrations-purchase-order-creates/SAP_API_Caller.(*SAPAPICaller).HeaderItem",
 	"level": "INFO",
 	"message": {
-		"PurchaseOrder": "",
+		"PurchaseOrder": "4500000011",
 		"CompanyCode": "0001",
 		"PurchaseOrderType": "NB",
 		"PurchasingProcessingStatus": "",
@@ -92,5 +92,5 @@
 			]
 		}
 	},
-	"time": "2022-09-23T12:44:25+09:00"
+	"time": "2022-09-23T13:16:49+09:00"
 }

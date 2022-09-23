@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"sap-api-integrations-purchase-order-creates/SAP_API_Caller/requests"
+	"sap-api-integrations-purchase-order-creates/SAP_API_Caller/responses"
 
 	"strings"
 	"sync"
@@ -60,7 +61,6 @@ func (c *SAPAPICaller) HeaderItem(headerItem *requests.HeaderItem) {
 
 func (c *SAPAPICaller) callPurchaseOrderSrvAPIRequirementHeaderItem(api string, headerItem *requests.HeaderItem) error {
 	body, err := json.Marshal(headerItem)
-	// fmt.Printf("%s", string(body))
 	if err != nil {
 		return xerrors.Errorf("API request error: %w", err)
 	}
@@ -76,6 +76,13 @@ func (c *SAPAPICaller) callPurchaseOrderSrvAPIRequirementHeaderItem(api string, 
 		return xerrors.Errorf("bad response:%s", string(byteArray))
 	}
 
+	resBody := responses.Header{}
+	json.Unmarshal(byteArray, &resBody)
+	if err != nil {
+		return xerrors.Errorf("convert error: %w", err)
+	}
+
+	headerItem.PurchaseOrder = resBody.D.PurchaseOrder
 	return nil
 }
 

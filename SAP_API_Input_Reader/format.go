@@ -11,12 +11,12 @@ func (sdc *SDC) ConvertToHeaderItem() *requests.HeaderItem {
 	header := sdc.ConvertToHeader()
 
 	for i := range data.PurchaseOrderItem {
-		results = append(results, *sdc.ConvertToHeaderItemItem(i))
+		results = append(results, *sdc.ConvertToItem(i))
 	}
 
 	return &requests.HeaderItem{
 		Header: *header,
-		To_PurchaseOrderItem: requests.To_PurchaseOrderItem{
+		To_Item: requests.To_Item{
 			Results: results,
 		},
 	}
@@ -52,7 +52,7 @@ func (sdc *SDC) ConvertToHeader() *requests.Header {
 	}
 }
 
-func (sdc *SDC) ConvertToHeaderItemItem(num int) *requests.Item {
+func (sdc *SDC) ConvertToItem(num int) *requests.Item {
 	dataPurchaseOrder := sdc.PurchaseOrder
 	data := sdc.PurchaseOrder.PurchaseOrderItem[num]
 	return &requests.Item{

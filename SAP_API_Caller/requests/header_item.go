@@ -2,9 +2,9 @@ package requests
 
 type HeaderItem struct {
 	Header
-	To_PurchaseOrderItem `json:"to_PurchaseOrderItem"`
+	To_Item `json:"to_PurchaseOrderItem"`
 }
 
-type To_PurchaseOrderItem struct {
+type To_Item struct {
 	Results []Item `json:"results"`
 }
