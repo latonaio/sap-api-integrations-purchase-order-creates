@@ -35,8 +35,6 @@
 		"AddressCountry": "",
 		"PurchaseOrderItem": [
 			{
-				"MEMO":"この行は最終的に削除",
-				"MEMO":"発注書１つめ",
 				"PurchaseOrderItem": "10",
 				"PurchaseOrderItemText": "",
 				"Plant": "0001",
@@ -151,8 +149,6 @@
 				}
 			},
 			{
-				"MEMO":"この行は最終的に削除",
-				"MEMO":"発注書2つめ",
 				"PurchaseOrderItem": "11",
 				"PurchaseOrderItemText": "",
 				"Plant": "0001",
@@ -270,9 +266,7 @@
 		]
 	},
 	"api_schema": "SAPPurchaseOrderCreates",
-	"accepter": [
-		"HeaderItem"
-	],
+	"accepter": ["HeaderItem"],
 	"purchase_order": "",
 	"deleted": false
 }
