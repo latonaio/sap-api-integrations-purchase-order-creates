@@ -24,8 +24,7 @@ sap-api-integrations-purchase-order-creates が対応する APIサービス は�
 ## 本レポジトリ に 含まれる API名
 sap-api-integrations-purchase-order-creates には、次の API をコールするためのリソースが含まれています。  
 
-* A_PurchaseOrder（購買発注 - ヘッダ）
-* A_PurchaseOrderItem（購買発注 - 明細）
+* A_PurchaseOrder（購買発注）
 
 ## SAP API Bussiness Hub の API の選択的コール
 
