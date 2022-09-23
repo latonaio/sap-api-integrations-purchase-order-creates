@@ -59,12 +59,12 @@ type SDC struct {
 	Filepath      string `json:"filepath"`
 	PurchaseOrder struct {
 		PurchaseOrder               string  `json:"PurchaseOrder"`
-		CompanyCode                 string  `json:"CompanyCode"`
-		PurchaseOrderType           string  `json:"PurchaseOrderType"`
+		CompanyCode                 *string `json:"CompanyCode"`
+		PurchaseOrderType           *string `json:"PurchaseOrderType"`
 		PurchasingProcessingStatus  *string `json:"PurchasingProcessingStatus"`
 		CreationDate                *string `json:"CreationDate"`
 		LastChangeDateTime          *string `json:"LastChangeDateTime"`
-		Supplier                    string  `json:"Supplier"`
+		Supplier                    *string `json:"Supplier"`
 		Language                    *string `json:"Language"`
 		PaymentTerms                *string `json:"PaymentTerms"`
 		PurchasingOrganization      *string `json:"PurchasingOrganization"`
@@ -89,13 +89,13 @@ type SDC struct {
 		AddressCountry              *string `json:"AddressCountry"`
 		PurchaseOrderItem           []struct {
 			PurchaseOrderItem              string  `json:"PurchaseOrderItem"`
-			PurchaseOrderItemText          string  `json:"PurchaseOrderItemText"`
-			Plant                          string  `json:"Plant"`
+			PurchaseOrderItemText          *string `json:"PurchaseOrderItemText"`
+			Plant                          *string `json:"Plant"`
 			StorageLocation                *string `json:"StorageLocation"`
 			MaterialGroup                  *string `json:"MaterialGroup"`
 			PurchasingInfoRecord           *string `json:"PurchasingInfoRecord"`
 			SupplierMaterialNumber         *string `json:"SupplierMaterialNumber"`
-			OrderQuantity                  string  `json:"OrderQuantity"`
+			OrderQuantity                  *string `json:"OrderQuantity"`
 			PurchaseOrderQuantityUnit      *string `json:"PurchaseOrderQuantityUnit"`
 			OrderPriceUnit                 *string `json:"OrderPriceUnit"`
 			DocumentCurrency               *string `json:"DocumentCurrency"`

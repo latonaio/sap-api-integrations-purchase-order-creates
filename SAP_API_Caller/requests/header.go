@@ -2,11 +2,11 @@ package requests
 
 type Header struct {
 	PurchaseOrder               string  `json:"PurchaseOrder"`
-	CompanyCode                 string  `json:"CompanyCode"`
-	PurchaseOrderType           string  `json:"PurchaseOrderType"`
+	CompanyCode                 *string `json:"CompanyCode"`
+	PurchaseOrderType           *string `json:"PurchaseOrderType"`
 	PurchasingProcessingStatus  *string `json:"PurchasingProcessingStatus"`
 	CreationDate                *string `json:"CreationDate"`
-	Supplier                    string  `json:"Supplier"`
+	Supplier                    *string `json:"Supplier"`
 	Language                    *string `json:"Language"`
 	PaymentTerms                *string `json:"PaymentTerms"`
 	PurchasingOrganization      *string `json:"PurchasingOrganization"`

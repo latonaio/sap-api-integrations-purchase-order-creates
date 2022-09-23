@@ -3,12 +3,12 @@ package requests
 type Item struct {
 	PurchaseOrder                  string  `json:"PurchaseOrder"`
 	PurchaseOrderItem              string  `json:"PurchaseOrderItem"`
-	Plant                          string  `json:"Plant"`
+	Plant                          *string `json:"Plant"`
 	StorageLocation                *string `json:"StorageLocation"`
 	MaterialGroup                  *string `json:"MaterialGroup"`
 	PurchasingInfoRecord           *string `json:"PurchasingInfoRecord"`
 	SupplierMaterialNumber         *string `json:"SupplierMaterialNumber"`
-	OrderQuantity                  string  `json:"OrderQuantity"`
+	OrderQuantity                  *string `json:"OrderQuantity"`
 	DocumentCurrency               *string `json:"DocumentCurrency"`
 	TaxCode                        *string `json:"TaxCode"`
 	UnlimitedOverdeliveryIsAllowed *bool   `json:"UnlimitedOverdeliveryIsAllowed"`

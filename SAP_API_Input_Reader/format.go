@@ -16,7 +16,7 @@ func (sdc *SDC) ConvertToHeaderItem() *requests.HeaderItem {
 
 	return &requests.HeaderItem{
 		Header: *header,
-		To_Item: requests.To_Item{
+		ToItem: requests.ToItem{
 			Results: results,
 		},
 	}
