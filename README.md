@@ -59,22 +59,16 @@ accepter における データ種別 の指定に基づいて SAP_API_Caller �
 caller.go の func() 毎 の 以下の箇所が、指定された API をコールするソースコードです。  
 
 ```
-func (c *SAPAPICaller) AsyncGetPurchaseOrder(
-	header             *requests.Header,
-    item               *requests.Item,
-    accepter []string) {
+func (c *SAPAPICaller) AsyncPostPurchaseOrder(
+	headerItem *requests.HeaderItem,
+	accepter []string) {
 	wg := &sync.WaitGroup{}
-	wg.Add(1)
+	wg.Add(len(accepter))
 	for _, fn := range accepter {
 		switch fn {
-		case "Header":
+		case "HeaderItem":
 			func() {
-				c.Header(header)
-				wg.Done()
-			}()
-		case "Item":
-			func() {
-				c.Item(item)
+				c.HeaderItem(headerItem)
 				wg.Done()
 			}()
 		default:
@@ -97,7 +91,7 @@ func (c *SAPAPICaller) AsyncGetPurchaseOrder(
 	"function": "sap-api-integrations-purchase-order-creates/SAP_API_Caller.(*SAPAPICaller).HeaderItem",
 	"level": "INFO",
 	"message": {
-		"PurchaseOrder": "4500000011",
+		"PurchaseOrder": "4500000020",
 		"CompanyCode": "0001",
 		"PurchaseOrderType": "NB",
 		"PurchasingProcessingStatus": "",
@@ -127,22 +121,22 @@ func (c *SAPAPICaller) AsyncGetPurchaseOrder(
 					"PurchaseOrder": "",
 					"PurchaseOrderItem": "10",
 					"Plant": "0001",
-					"StorageLocation": "",
+					"StorageLocation": "0001",
 					"MaterialGroup": "",
 					"PurchasingInfoRecord": "",
 					"SupplierMaterialNumber": "",
 					"OrderQuantity": "1",
 					"DocumentCurrency": "",
-					"TaxCode": "",
+					"TaxCode": "V1",
 					"UnlimitedOverdeliveryIsAllowed": null,
 					"IsCompletelyDelivered": null,
 					"IsFinallyInvoiced": null,
 					"PurchaseOrderItemCategory": "",
 					"AccountAssignmentCategory": "",
-					"GoodsReceiptIsExpected": null,
-					"GoodsReceiptIsNonValuated": null,
-					"InvoiceIsExpected": null,
-					"InvoiceIsGoodsReceiptBased": null,
+					"GoodsReceiptIsExpected": true,
+					"GoodsReceiptIsNonValuated": false,
+					"InvoiceIsExpected": true,
+					"InvoiceIsGoodsReceiptBased": true,
 					"Customer": "",
 					"SupplierIsSubcontractor": null,
 					"IncotermsClassification": "",
@@ -151,41 +145,50 @@ func (c *SAPAPICaller) AsyncGetPurchaseOrder(
 					"RequisitionerName": "",
 					"Material": "21",
 					"InternationalArticleNumber": "",
-					"PurchasingDocumentDeletionCode": ""
-				},
-				{
-					"PurchaseOrder": "",
-					"PurchaseOrderItem": "11",
-					"Plant": "0001",
-					"StorageLocation": "",
-					"MaterialGroup": "",
-					"PurchasingInfoRecord": "",
-					"SupplierMaterialNumber": "",
-					"OrderQuantity": "1",
-					"DocumentCurrency": "",
-					"TaxCode": "",
-					"UnlimitedOverdeliveryIsAllowed": null,
-					"IsCompletelyDelivered": null,
-					"IsFinallyInvoiced": null,
-					"PurchaseOrderItemCategory": "",
-					"AccountAssignmentCategory": "",
-					"GoodsReceiptIsExpected": null,
-					"GoodsReceiptIsNonValuated": null,
-					"InvoiceIsExpected": null,
-					"InvoiceIsGoodsReceiptBased": null,
-					"Customer": "",
-					"SupplierIsSubcontractor": null,
-					"IncotermsClassification": "",
-					"PurchaseRequisition": "",
-					"PurchaseRequisitionItem": "",
-					"RequisitionerName": "",
-					"Material": "21",
-					"InternationalArticleNumber": "",
-					"PurchasingDocumentDeletionCode": ""
+					"PurchasingDocumentDeletionCode": "",
+					"to_PurchaseOrderPricingElement": {
+						"results": [
+							{
+								"PurchaseOrder": "",
+								"PurchaseOrderItem": "10",
+								"PricingDocument": "",
+								"PricingDocumentItem": "10",
+								"PricingProcedureStep": "1",
+								"PricingProcedureCounter": "1",
+								"ConditionType": "PBXX",
+								"ConditionRateValue": "800",
+								"ConditionCurrency": "",
+								"PriceDetnExchangeRate": "",
+								"TransactionCurrency": "",
+								"ConditionAmount": null,
+								"ConditionQuantityUnit": "",
+								"ConditionQuantity": null,
+								"ConditionApplication": "",
+								"PricingDateTime": "",
+								"ConditionCalculationType": "",
+								"ConditionBaseValue": null,
+								"ConditionToBaseQtyNmrtr": null,
+								"ConditionToBaseQtyDnmntr": null,
+								"ConditionCategory": "",
+								"PricingScaleType": "",
+								"ConditionOrigin": "",
+								"IsGroupCondition": "",
+								"ConditionSequentialNumber": "",
+								"ConditionInactiveReason": "",
+								"PricingScaleBasis": "",
+								"ConditionScaleBasisValue": null,
+								"ConditionScaleBasisCurrency": "",
+								"ConditionScaleBasisUnit": "",
+								"ConditionIsManuallyChanged": null,
+								"ConditionRecord": ""
+							}
+						]
+					}
 				}
 			]
 		}
 	},
-	"time": "2022-09-23T13:16:49+09:00"
+	"time": "2022-09-28T19:42:59+09:00"
 }
+
 ```
